@@ -1,0 +1,49 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# === DATOS PERSONALES — NUNCA COMMIT ===
+# TODO el contenido de data/: las reglas específicas de abajo se conservan
+# como documentación, pero la blanket evita huecos como data/pdfs_nu/ y
+# data/codigos_todos.txt, que quedaron descubiertos al agregarse después
+# de escribir las reglas originales. Se usa data/* (no data/) para poder
+# re-incluir el ejemplo ficticio de configuración.
+data/*
+# Config real de cuentas (CLABEs + nombres) — solo el .example se trackea
+data/cuentas_conocidas.json
+# PDFs de estados de cuenta
+data/pdfs/
+# Cache de OCR (contiene los textos extraídos de los PDFs)
+data/ocr_cache/
+# Cualquier base de datos generada
+*.db
+*.sqlite
+*.sqlite3
+# CSVs/JSONs de salida del extractor
+data/output/
+data/*.csv
+data/*.json
+# Imágenes temporales del OCR
+data/*.png
+data/_temp_*
+# EXCEPCIÓN (debe ir al final de la sección: en gitignore gana la última
+# regla que matchea): el ejemplo ficticio de config SÍ se trackea
+!data/cuentas_conocidas.example.json
+
+# === EDITOR / OS ===
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# === SECRETOS ===
+.env
+.env.local
+*.key

@@ -1,0 +1,15 @@
+{
+  "_comentario": "Copia este archivo a data/cuentas_conocidas.json (ignorado por git) y reemplaza con tus CLABEs y nombres reales. Las CLABEs de ejemplo tienen formato válido (18 dígitos) pero son ficticias.",
+  "clabe_propia_santander": "014180000000000018",
+  "cuentas": {
+    "638180000000000012": ["Nu (propia)", "transferencia_nu"],
+    "014180000000000018": ["Santander (propia)", "transferencia_nu"],
+    "012180000000000015": ["JUAN PEREZ EJEMPLO (familia)", "ingreso_terceros"],
+    "021180000000000011": ["HSBC (nómina)", "ingreso_nomina"],
+    "127180000000000016": ["Azteca (nómina)", "ingreso_nomina"]
+  },
+  "patrones_personas": [
+    ["JUAN PEREZ EJEMPLO", "Transferencia propia", "transferencia_nu"],
+    ["MARIA LOPEZ EJEMPLO", "Envío familia", "transferencia_otros"]
+  ]
+}

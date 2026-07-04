@@ -1,0 +1,18 @@
+services:
+  postgres-finanzas:
+    image: postgres:17
+    container_name: finanzas-pg
+    restart: unless-stopped
+    environment:
+      # docker compose lee las variables de .env (raíz del repo);
+      # copiar .env.example → .env y definir el password ahí
+      POSTGRES_USER: ${DB_USER:-finanzas}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?definir POSTGRES_PASSWORD en .env}
+      POSTGRES_DB: ${DB_NAME:-finanzas}
+    ports:
+      - "5434:5432"
+    volumes:
+      - finanzas_data:/var/lib/postgresql/data
+
+volumes:
+  finanzas_data:
