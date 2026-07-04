@@ -2,8 +2,10 @@
 
 A personal-finance data pipeline that turns raw bank statement PDFs from two
 Mexican banks into a validated, normalized PostgreSQL database with
-cross-bank reconciliation — built as an exercise in applied data
-engineering: OCR, parser design, accounting invariants, and schema design.
+cross-bank reconciliation. Built to answer a question no single bank could:
+where does the money actually go when it moves between accounts? The answer
+required OCR, parser design, accounting invariants enforced to the cent,
+and schema design.
 
 **No financial data lives in this repo.** All personal identifiers (account
 numbers, counterparty names) load at runtime from a gitignored config file;
@@ -131,6 +133,10 @@ uv run python tests/sanidad_flujo_consolidado.py # view vs. manual recomputation
   sections, internal-movement flag, parsed SPEI metadata) differs enough
   from Santander's (deposit/withdrawal/balance columns) that forcing one
   table lost information; a view provides the unified surface instead.
+- **Portable by module boundary.** OCR is macOS-only (Apple Vision);
+  swapping in Tesseract or another engine is isolated to a single module —
+  the parser consumes normalized (text, x, y) annotations, not
+  engine-specific output.
 - **Privacy by design.** The repo separates *mechanism* (tracked code) from
   *personal data* (gitignored config + local files), so the pipeline is
   publishable and reusable without leaking a single account number.
